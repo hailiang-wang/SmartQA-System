@@ -4,7 +4,6 @@ from pandas import Series,DataFrame
 
 l=Series(data=[1,2,3])
 print l
-print l.indext[u'聚类类别']
 print l.data
 
 for i in l.index:
@@ -22,3 +21,6 @@ print s
 print d
 sd=pd.concat((s,d),axis=1)
 print sd
+
+d.head(1)
+d.tail(1)
