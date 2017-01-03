@@ -1,5 +1,7 @@
 #-- coding:utf-8 --#
 from pyspark.sql import SparkSession
+from pyspark.sql import Row
+from pyspark import SparkContext
 spark=SparkSession \
     .builder \
     .appName("sparkSession") \
@@ -17,9 +19,37 @@ df.select(df['name'],df['age']).show()
 
 df.filter(df['age']>20).show()
 df.groupby(df['age']).count().show()
+
+#执行sql必须是要产生视图执行如下函数
 df.createOrReplaceTempView('people')
 sqldf=spark.sql('select * from people')
 sqldf.show()
+#产生全局临时视图
 
+# df.createGlobalTempView('people')
+# spark.sql("select * from global_tem.people").show()
+# 为什么出错没搞清
 
+#datafram 与RDD的交互
+#RDD仍然要作为一种必须要学的数据结构
+#sc=SparkContext(appName="rddtest")这种数据结构就不可取了
 sc=spark.sparkContext
+lines=sc.textFile('../data/people.txt')
+parts=lines.map(lambda l: l.split(","))
+people = parts.map(lambda p: Row(name=p[0], age=int(p[1])))#冒号前是参数，冒号后表达式就是返回值
+
+
+# Infer the schema, and register the DataFrame as a table.
+#schemaPeople = spark.createDataFrame(people) #两种产生datafram结构的方式
+schemaPeople=people.toDF()
+schemaPeople.createOrReplaceTempView("people")
+
+# SQL can be run over DataFrames that have been registered as a table.
+teenagers = spark.sql("SELECT name FROM people WHERE age >= 13 AND age <= 19")
+
+# The results of SQL queries are Dataframe objects.
+# rdd returns the content as an :class:`pyspark.RDD` of :class:`Row`.
+teenNames = teenagers.rdd.map(lambda p: "Name: " + p.name).collect()
+for name in teenNames:
+    print(name)
+
