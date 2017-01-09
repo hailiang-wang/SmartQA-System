@@ -53,3 +53,7 @@ teenNames = teenagers.rdd.map(lambda p: "Name: " + p.name).collect()
 for name in teenNames:
     print(name)
 
+
+#是否可以从ndarray中产生datafram,从dataframe，series中转为DataFrame
+#必须要解决spark算法数据输入的问题。
+

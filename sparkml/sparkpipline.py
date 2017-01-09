@@ -10,6 +10,7 @@ spark=SparkSession \
     .getOrCreate()
 
 # Prepare training documents from a list of (id, text, label) tuples.
+#tuples的一个list表
 training = spark.createDataFrame([
     (0, "a b c d e spark", 1.0),
     (1, "b d", 0.0),
@@ -45,3 +46,6 @@ for row in selected.collect():
     print row
     rid, text, prob, prediction = row
     print("(%d, %s) --> prob=%s, prediction=%f" % (rid, text, str(prob), prediction))
+
+
+#需重点看一下spark.read DataFrame东西。
