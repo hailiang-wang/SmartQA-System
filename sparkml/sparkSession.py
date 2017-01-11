@@ -37,7 +37,7 @@ sc=spark.sparkContext
 lines=sc.textFile('../data/people.txt')
 parts=lines.map(lambda l: l.split(","))
 people = parts.map(lambda p: Row(name=p[0], age=int(p[1])))#冒号前是参数，冒号后表达式就是返回值
-
+#RDD是对象的集合，而DataFrame是
 
 # Infer the schema, and register the DataFrame as a table.
 #schemaPeople = spark.createDataFrame(people) #两种产生datafram结构的方式
@@ -57,3 +57,21 @@ for name in teenNames:
 #是否可以从ndarray中产生datafram,从dataframe，series中转为DataFrame
 #必须要解决spark算法数据输入的问题。
 
+df = spark.read.load("../data/users.parquet")
+#df.select("name", "favorite_color").write.save("namesAndFavColors.parquet")
+df.show()
+
+peopleDF = spark.read.json("../data/people.json")
+
+# DataFrames can be saved as Parquet files, maintaining the schema information.
+peopleDF.write.parquet("../data/people.parquet")
+
+# Read in the Parquet file created above.
+# Parquet files are self-describing so the schema is preserved.
+# The result of loading a parquet file is also a DataFrame.
+parquetFile = spark.read.parquet("../data/people.parquet")
+
+# Parquet files can also be used to create a temporary view and then used in SQL statements.
+parquetFile.createOrReplaceTempView("parquetFile")
+teenagers = spark.sql("SELECT name FROM parquetFile WHERE age >= 13 AND age <= 19")
+teenagers.show()

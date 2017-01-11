@@ -11,6 +11,7 @@ spark=SparkSession \
 
 # Prepare training documents from a list of (id, text, label) tuples.
 #tuples的一个list表
+#spark本身具备了sqlContext的功能
 training = spark.createDataFrame([
     (0, "a b c d e spark", 1.0),
     (1, "b d", 0.0),
@@ -26,7 +27,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
 # Fit the pipeline to training documents.
 model = pipeline.fit(training)
-
+#算法部分也要依据固有的dataframe格式才可以。
 # Prepare test documents, which are unlabeled (id, text) tuples.
 test = spark.createDataFrame([
     (4, "spark i j k"),
@@ -49,3 +50,6 @@ for row in selected.collect():
 
 
 #需重点看一下spark.read DataFrame东西。
+#疑问一、写入的时候为什么报错
+#疑问二、如何将dataframe结构转化为算法需要的结构。label，features
+#是否可以使用RDD改变map映射，再用raw的方式赋予label与raw的方式
