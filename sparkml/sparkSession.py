@@ -74,4 +74,3 @@ parquetFile = spark.read.parquet("../data/people.parquet")
 # Parquet files can also be used to create a temporary view and then used in SQL statements.
 parquetFile.createOrReplaceTempView("parquetFile")
 teenagers = spark.sql("SELECT name FROM parquetFile WHERE age >= 13 AND age <= 19")
-teenagers.show()

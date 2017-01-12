@@ -51,5 +51,5 @@ for row in selected.collect():
 
 #需重点看一下spark.read DataFrame东西。
 #疑问一、写入的时候为什么报错
-#疑问二、如何将dataframe结构转化为算法需要的结构。label，features
+#疑问二、如何将dataframe结构转化为算法需要的结构。label，features,可以设定。
 #是否可以使用RDD改变map映射，再用raw的方式赋予label与raw的方式
