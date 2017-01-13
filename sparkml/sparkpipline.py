@@ -21,8 +21,13 @@ training = spark.createDataFrame([
 
 # Configure an ML pipeline, which consists of three stages: tokenizer, hashingTF, and lr.
 tokenizer = Tokenizer(inputCol="text", outputCol="words")
+tokenizerdata=tokenizer.transform(training)
+tokenizerdata.show()
 hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
+hashingTFdata=hashingTF.transform(tokenizerdata)
+hashingTFdata.select('features').show()
 lr = LogisticRegression(maxIter=10, regParam=0.001)
+lr.fit(hashingTFdata)
 pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
 # Fit the pipeline to training documents.

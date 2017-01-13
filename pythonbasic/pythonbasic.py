@@ -41,3 +41,44 @@ def prod(x, y):
     return x*y
 
 print reduce(prod, [2, 4, 5, 7, 12])
+
+
+str="abcd"
+l=list(str)
+print l
+
+a="a"
+b="b"
+#print str(a) 报错
+c=100
+a=12
+print chr(a)
+a='10'
+print int(a)
+#print a+b+chr(c)
+
+#print int(a)+int(b)+c 报错
+i=int(raw_input('请输入i：'))
+l=range(i)
+for i in range(i):
+    l[i]=i+2
+
+print l
+fo=open('../data/people.txt')
+for i in fo:
+    #i.strip('') 是删除''引号中的字符串
+    i=i.split(',')
+    print type(i)
+    for i in i:
+        print i
+
+
+
+def temp_convert(var):
+    try:
+        return int(var)
+    except ValueError, Argument:
+        print "参数没有包含数字\n", Argument
+
+# 调用函数
+temp_convert("xyz")
