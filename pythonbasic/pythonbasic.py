@@ -13,7 +13,7 @@ print '\n'
 print '\t'
 
 a = 'python'
-print 'hello,', a or 'world' #在计算 a and b 时，如果 a 是 False，则根据与运算法则，整个结果必定为 False，因此返回 a；如果 a 是 True，则整个计算结果必定取决与 b，因此返回 b
+print 'hello,', a and 'world' #在计算 a and b 时，如果 a 是 False，则根据与运算法则，整个结果必定为 False，因此返回 a；如果 a 是 True，则整个计算结果必定取决与 b，因此返回 b
 b = ''
 print 'hello,', b or 'world' #在计算 a or b 时，如果 a 是 True，则根据或运算法则，整个计算结果必定为 True，因此返回 a；如果 a 是 False，则整个计算结果必定取决于 b，因此返回 b。
 
@@ -65,8 +65,9 @@ for i in range(i):
 
 print l
 fo=open('../data/people.txt')
+print type(fo)
 for i in fo:
-    #i.strip('') 是删除''引号中的字符串
+    i.strip(',') #是删除''引号中的字符串
     i=i.split(',')
     print type(i)
     for i in i:

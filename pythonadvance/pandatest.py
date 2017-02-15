@@ -25,5 +25,5 @@ print sd
 d.head(1)
 d.tail(1)
 #d.to_excel('../data/test.xlsx')
-r=pd.read_excel('../data/test.xlsx')
+r=pd.read_excel('../data/sampling.xlsx')
 print r
