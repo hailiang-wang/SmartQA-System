@@ -67,7 +67,7 @@ for t in terms:
 import jieba.analyse
 strx = '网络让我们之间的距离变的如此之近，也同时让我们变的如此遥远。世界上最远的距离不是南极到北极，也不是喜马拉雅之巅到马里亚纳之渊；而是相对而坐，却各自忙着刷手机。暂别网络世界，去和爱人道一句早安，去和朋友聊一夜往事，去和家人吃一顿饭，其实也是挺好的'
 s= '结巴分词是一个Python下的中文分词组件'
-rt = jieba.analyse.extract_tags(content,2)
+rt = jieba.analyse.extract_tags(strx,5)
 print jieba.analyse.extract_tags(s,2)  #这个样是按照列表的形式进行的输出，就和之前遇到的一样，不是编码的问题，而是关键词在列表中，才导致的这种问题。
 for r in rt:
    print r
