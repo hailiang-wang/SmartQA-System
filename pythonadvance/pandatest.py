@@ -17,6 +17,7 @@ print m    #列表与index不是同一种数据结构，index是一种对象类�
 s=Series([2,3,4],index=['b','a','c'])
 
 d=DataFrame({'e':4,'d':5,'f':6},index=['a','b','c'])
+print d.describe()
 print s
 print d
 sd=pd.concat((s,d),axis=1)
@@ -26,4 +27,4 @@ d.head(1)
 d.tail(1)
 #d.to_excel('../data/test.xlsx')
 r=pd.read_excel('../data/sampling.xlsx')
-print r
+#print r

@@ -9,7 +9,7 @@ data=datas.iloc[:,1:].as_matrix()
 target=datas.iloc[:,0].as_matrix()
 print data.shape
 
-
+print type(target)
 from sklearn.linear_model import LinearRegression
 model=LinearRegression()
 model.fit(data,target)
