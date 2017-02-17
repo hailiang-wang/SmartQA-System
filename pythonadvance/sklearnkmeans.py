@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 inputfile='../data/sampling.xlsx'
 outputfile='../data/outputfile.xlsx'
 data=pandas.read_excel(inputfile)
+print data.index #可以同过index_col设置index的。
 #print data.values
 #data=data[2:]
 data_zs=1.0*(data-data.mean())/data.std()

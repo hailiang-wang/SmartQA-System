@@ -83,3 +83,13 @@ def temp_convert(var):
 
 # 调用函数
 temp_convert("xyz")
+
+a=[[1,2,3],[4,5,6]]
+print type(a)
+
+dataSet = [[1, 1, 'yes'],
+           [1, 1, 'yes'],
+           [1, 0, 'no'],
+           [0, 1, 'no'],
+           [0, 1, 'no']]
+print type(dataSet)

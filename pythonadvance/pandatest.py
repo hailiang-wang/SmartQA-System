@@ -1,6 +1,7 @@
 #-- coding:utf-8 --#
 import pandas as pd
 from pandas import Series,DataFrame
+import numpy as np
 
 l=Series(data=[1,2,3])
 print l
@@ -17,6 +18,9 @@ print m    #列表与index不是同一种数据结构，index是一种对象类�
 s=Series([2,3,4],index=['b','a','c'])
 
 d=DataFrame({'e':4,'d':5,'f':6},index=['a','b','c'])
+print d.index
+print d.columns
+print d.values
 print d.describe()
 print s
 print d
@@ -28,3 +32,7 @@ d.tail(1)
 #d.to_excel('../data/test.xlsx')
 r=pd.read_excel('../data/sampling.xlsx')
 #print r
+
+dates=pd.date_range('20170217',periods=2)
+data=pd.DataFrame(np.random.randn(2,4),index=dates,columns=['a','b','c','d'])
+print data
