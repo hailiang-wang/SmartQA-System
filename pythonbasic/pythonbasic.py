@@ -93,3 +93,4 @@ dataSet = [[1, 1, 'yes'],
            [0, 1, 'no'],
            [0, 1, 'no']]
 print type(dataSet)
+
