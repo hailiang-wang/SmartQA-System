@@ -94,3 +94,6 @@ dataSet = [[1, 1, 'yes'],
            [0, 1, 'no']]
 print type(dataSet)
 
+print range(1,5)
+print range(6,10)
+print range(1,5)+range(6,10) #列表相加不是俩俩相加，而是合成一个更长的list

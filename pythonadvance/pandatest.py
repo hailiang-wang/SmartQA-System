@@ -36,3 +36,9 @@ r=pd.read_excel('../data/sampling.xlsx')
 dates=pd.date_range('20170217',periods=2)
 data=pd.DataFrame(np.random.randn(2,4),index=dates,columns=['a','b','c','d'])
 print data
+a=Series([1,2,3,4,None,5])
+print a.isnull() #类型仍然是list
+print type(a[a.isnull()]) #只出现结果是true的值，类型仍然是list ，pandas的任何一列都是Series
+
+print a[range(1,3)] #Series的读取问题，可以根据列表序号进行读取。
+
