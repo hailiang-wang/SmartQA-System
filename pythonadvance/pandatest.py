@@ -22,6 +22,15 @@ print d.index
 print d.columns
 print d.values
 print d.describe()
+print '测试iterrows'
+for i ,series in d.iterrows():#返回每行的序列号，及每行对应每个列的值。
+    print i,'---',series
+
+print '测试iloc'
+print d
+print d.iloc[0:2]#前边默认是行。
+
+print set(d['d'].tolist())
 print s
 print d
 sd=pd.concat((s,d),axis=1)
@@ -36,6 +45,9 @@ r=pd.read_excel('../data/sampling.xlsx')
 dates=pd.date_range('20170217',periods=2)
 data=pd.DataFrame(np.random.randn(2,4),index=dates,columns=['a','b','c','d'])
 print data
+print '测试to_list'
+print list(set(data['d'].tolist()[0]))
+#doc_word = list(set(doc['content'].tolist()[0]))
 a=Series([1,2,3,4,None,5])
 print a.isnull() #类型仍然是list
 print type(a[a.isnull()]) #只出现结果是true的值，类型仍然是list ，pandas的任何一列都是Series

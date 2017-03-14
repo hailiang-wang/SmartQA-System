@@ -3,7 +3,10 @@
 #列表自动生成
 
 l=range(10)
-l1=l[2:9:2]#第三个参数是间隔
+print l
+l2=l[:-9-1:-1]
+print l2
+l1=l[9:2:-2]#第三个参数是间隔
 print l1
 
 print '\\' #""是一样的不需要变
@@ -97,3 +100,10 @@ print type(dataSet)
 print range(1,5)
 print range(6,10)
 print range(1,5)+range(6,10) #列表相加不是俩俩相加，而是合成一个更长的list
+
+i='####口疮####飞滋####口炎疮####复发性口疮####复发性'
+i=i.strip('####')
+print i
+j='###我们###你们'
+j=j.strip('####')
+print j
