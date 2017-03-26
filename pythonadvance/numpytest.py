@@ -84,6 +84,16 @@ m = np.dot(np.linalg.det(a), np.linalg.inv(a))	# A-1 = A'' / |A|  ==>   A''= A-1
 #矩阵范数(matrix norms)
 k = np.linalg.norm(a)
 
+l1=[1,2,3]
+l2=[1,2,3]
+l3=[1,2,3]
+l1=np.array(l1)
+l2=np.array(l2)
+l3=np.array(l3)
+l=list((l1+l2+l3)/3)
+print l
+
+
 
 
 

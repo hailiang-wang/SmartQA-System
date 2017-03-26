@@ -10,7 +10,7 @@ sentences=[['first','sentence'],['second','sentence']] #说明了模型的输入
 
 model=gensim.models.Word2Vec(sentences,min_count=1,size=100) #min_count是可以忽略的出现次数少的词，因此当min_count设置为2时，报错，因为first被忽略了。size代表向量的维度。
 
-
+#print model['three']
 
 
 print(model['first'])

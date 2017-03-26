@@ -107,3 +107,28 @@ print i
 j='###我们###你们'
 j=j.strip('####')
 print j
+
+l=[2,5,4,3]
+l.sort()
+print l
+l=[2,5,4,3]
+sorted(l)
+print l
+m={'a':1,'b':2}
+print m['a']
+#print m[2] dict的顺序是不能颠倒的。
+
+l=[2,5,4,3]
+print l.index(2)
+import numpy.linalg as la
+import numpy as np
+a=np.array([1,2,3])
+b=np.array([2,3,5])
+print b-a
+print la.norm(b-a)
+import math
+
+print math.sqrt(6)
+
+l=[1,2,3]
+print l[-1]
