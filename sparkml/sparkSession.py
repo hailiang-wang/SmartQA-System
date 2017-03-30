@@ -10,9 +10,9 @@ spark=SparkSession \
 df=spark.read.json('../data/people.json')
 
 df.show()
-
-#df.take(1) 这是什么意思？
-
+print '-------'
+df.take(1) #这是什么意思？
+print '--------'
 df.printSchema()
 df.select(df['name'],df['age']).show()
 #df.select(df['name'], df['age'] ).show()

@@ -132,3 +132,37 @@ print math.sqrt(6)
 
 l=[1,2,3]
 print l[-1]
+str='你好吗？\n' \
+    '我很好' \
+    '     ' \
+    '你好吗？'
+
+if '吗'or '呀' or'？' in str:
+    print str
+
+import time
+a = "2016-04-19 17:37:01"
+c="2016-04-19 17:37:46"
+b=time.mktime(time.strptime(a,'%Y-%m-%d %H:%M:%S'))
+d=time.mktime(time.strptime(c,'%Y-%m-%d %H:%M:%S'))
+print b
+print d
+
+import numpy as np
+a=np.array(([1,2,3,4]))
+print np.median(a)#中位数
+print np.percentile(a,75)#95%分位数
+
+a='a我'
+print len(a)
+
+str='我很开心'
+if  '？' in str:
+    print str
+
+for i in range(6):
+    print i
+    if i==3:
+        i=i+2
+    print i
+
